@@ -1,5 +1,5 @@
-NAME2 = client
 NAME1 = server
+NAME2 = client
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 

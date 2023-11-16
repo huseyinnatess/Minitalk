@@ -6,7 +6,7 @@
 /*   By: huates <huates@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:15:03 by huates            #+#    #+#             */
-/*   Updated: 2023/11/13 12:13:59 by huates           ###   ########.fr       */
+/*   Updated: 2023/11/16 11:52:41 by huates           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,25 @@ static void	ft_kill(int pid, char c)
 	}
 }
 
+static int	checkpid(char *str)
+{
+	while (*str)
+	{
+		if (*str < 48 || *str > 57)
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
 int	main(int argc, char *argv[])
 {
 	int	pid;
 	int	i;
 
-	if (argc != 3)
+	if (argc != 3 || !checkpid(argv[1]))
 	{
-		write(1, "Error : Wrong number of arguments\n", 35);
+		write(1, "Incorrect argument number or pid number\n", 40);
 		return (1);
 	}
 	else
@@ -74,4 +85,5 @@ int	main(int argc, char *argv[])
 			i++;
 		}
 	}
+	return (0);
 }

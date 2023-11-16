@@ -6,13 +6,11 @@
 /*   By: huates <huates@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:01:16 by huates            #+#    #+#             */
-/*   Updated: 2023/11/13 12:14:06 by huates           ###   ########.fr       */
+/*   Updated: 2023/11/16 11:41:49 by huates           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-static int	g_rtn = 0;
 
 void	ft_putchar(char c)
 {
@@ -44,6 +42,7 @@ void	ft_putnbr(int n)
 static void	signal_process(int signal)
 {
 	static int	i = 7;
+	static int	rtn = 0;
 	int			j;
 	int			tmp;
 
@@ -53,14 +52,14 @@ static void	signal_process(int signal)
 	{
 		while (++j < i - 1)
 			tmp *= 2;
-		g_rtn += tmp;
+		rtn += tmp;
 	}
 	else if (i == 0)
 	{
 		if (signal == SIGUSR1)
-			g_rtn += 1;
-		write(1, &g_rtn, 1);
-		g_rtn = 0;
+			rtn += 1;
+		write(1, &rtn, 1);
+		rtn = 0;
 	}
 	i--;
 	if (i < 0)
@@ -77,6 +76,7 @@ int	main(void)
 	write(1, "\n", 1);
 	signal(SIGUSR1, signal_process);
 	signal(SIGUSR2, signal_process);
-
+	while (1)
+		pause();
 	return (0);
 }
