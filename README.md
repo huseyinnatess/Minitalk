@@ -7,4 +7,6 @@ Bu proje, UNIX sinyallerini kullanarak haberleşmeyi öğretir. İstemci ve sunu
 
 # Kurulum
 Repoyu klonlayın:
-
+```
+https://github.com/huseyinnatess/Minitalk.git
+```
