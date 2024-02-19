@@ -22,3 +22,16 @@ make
 ```
 
 ## Kullanım
+
+Sunucuyu başlatın:
+```
+./server
+```
+
+Farklı bir terminalde aynı işlemleri uygulayarak istemciyi başlatın ve bir mesaj gönderin:
+```
+./client [server_pid] [mesaj]
+```
+
+`[server_pid]` parametresini sunucunun işlem kimliğiyle (./server komutunu çalıştırdığınızda görüntülenir) ve [mesaj] parametresini göndermek istediğiniz mesajla değiştirin.
+
